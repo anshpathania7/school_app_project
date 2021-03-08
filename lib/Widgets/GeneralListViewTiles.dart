@@ -33,7 +33,7 @@ class GeneralListViewTiles extends StatelessWidget {
               style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w500,
-                  fontSize: 18),
+                  fontSize: 16),
             ),
             Spacer(),
             RotatedBox(quarterTurns: 2, child: Icon(Icons.arrow_back_ios))

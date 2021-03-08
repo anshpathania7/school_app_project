@@ -1,16 +1,30 @@
 import 'package:flutter/material.dart';
 
 class UserIdSelector extends StatelessWidget {
+  final String heroTag;
+
+  const UserIdSelector({Key key, this.heroTag}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 24),
       child: Row(
         children: [
-          CircleAvatar(
-            radius: 24,
-            backgroundImage: AssetImage("Assets/images/Avatar.png"),
-          ),
+          (heroTag.isNotEmpty)
+              ? Hero(
+                  tag: heroTag,
+                  child: Material(
+                    child: CircleAvatar(
+                      radius: 24,
+                      backgroundImage: AssetImage("Assets/images/Avatar.png"),
+                    ),
+                  ),
+                )
+              : CircleAvatar(
+                  radius: 24,
+                  backgroundImage: AssetImage("Assets/images/Avatar.png"),
+                ),
           const SizedBox(
             width: 8,
           ),
@@ -57,6 +71,7 @@ class UserIdSelector extends StatelessWidget {
               child: Icon(
                 Icons.arrow_back_ios,
                 color: Colors.black87,
+                size: 20,
               ),
             ),
           ),

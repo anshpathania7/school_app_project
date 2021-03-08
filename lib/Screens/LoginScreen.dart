@@ -50,28 +50,34 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(
                   height: 36,
                 ),
-                SizedBox(
-                  height: 90,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Welcome!",
-                        style: TextStyle(
-                            fontSize: 42,
-                            fontWeight: FontWeight.w800,
-                            letterSpacing: 1.2),
+                Hero(
+                  tag: "textTag",
+                  child: Material(
+                    child: SizedBox(
+                      height: 80,
+                      width: MediaQuery.of(context).size.width,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Welcome!",
+                            style: TextStyle(
+                                fontSize: 42,
+                                fontWeight: FontWeight.w800,
+                                letterSpacing: 1.2),
+                          ),
+                          Spacer(),
+                          Text(
+                            "enter your registered no.",
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w300,
+                                letterSpacing: 1.1),
+                          )
+                        ],
                       ),
-                      Spacer(),
-                      Text(
-                        "enter your registered no.",
-                        style: TextStyle(
-                            fontSize: 26,
-                            fontWeight: FontWeight.w300,
-                            letterSpacing: 1.1),
-                      )
-                    ],
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -79,11 +85,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(
                   height: 80,
+                  width: MediaQuery.of(context).size.width,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Container(
                         height: 60,
+                        width: MediaQuery.of(context).size.width * 0.4,
                         decoration: BoxDecoration(
                             color: Color.fromRGBO(4, 93, 223, 1),
                             borderRadius: BorderRadius.circular(12)),
@@ -91,24 +99,24 @@ class _LoginScreenState extends State<LoginScreen> {
                         // dropdown below..
                         child: Padding(
                           padding: const EdgeInsets.only(
-                              top: 18.0, bottom: 18.0, left: 18),
+                              top: 18.0, bottom: 18.0, left: 16),
                           child: DropdownButton<String>(
                               value: dropdownValue,
                               dropdownColor: Colors.blue,
                               style:
-                                  TextStyle(color: Colors.white, fontSize: 20),
+                                  TextStyle(color: Colors.white, fontSize: 18),
                               icon: RotatedBox(
                                 quarterTurns: 3,
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 6, vertical: 18),
+                                      horizontal: 6, vertical: 6),
                                   child: Icon(
                                     Icons.arrow_back_ios,
                                     color: Colors.white,
                                   ),
                                 ),
                               ),
-                              iconSize: 22,
+                              iconSize: 20,
                               underline: SizedBox(),
                               onChanged: (String newValue) {
                                 setState(() {
@@ -130,11 +138,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       const SizedBox(
-                        width: 12,
+                        width: 8,
                       ),
                       Container(
                         height: 60,
-                        width: MediaQuery.of(context).size.width * 0.5,
+                        width: MediaQuery.of(context).size.width * 0.4,
                         child: TextFormField(
                           keyboardType: TextInputType.number,
                           cursorHeight: 24,
@@ -151,57 +159,62 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(
                   height: 60,
                 ),
-                SizedBox(
-                  height: 60,
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 70,
-                        width: 70,
-                        decoration: BoxDecoration(
-                            color: Color.fromRGBO(4, 93, 223, 1),
-                            borderRadius: BorderRadius.circular(16)),
-                        child: Center(
-                          child: Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 12,
-                      ),
-                      Container(
-                        height: 70,
-                        width: MediaQuery.of(context).size.width * 0.68,
-                        decoration: BoxDecoration(
-                            color: Color.fromRGBO(4, 93, 223, 1),
-                            borderRadius: BorderRadius.circular(16)),
-                        child: InkWell(
-                          onTap: () => ExtendedNavigator.of(context)
-                              .push(Routes.confirmIdScreen),
-                          child: Center(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "Next",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 22),
-                                ),
-                                const SizedBox(
-                                  width: 4,
-                                ),
-                                Icon(
-                                  Icons.arrow_forward,
-                                  color: Colors.white,
-                                ),
-                              ],
+                Hero(
+                  tag: "nextBtn",
+                  child: Material(
+                    child: SizedBox(
+                      height: 60,
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 70,
+                            width: 70,
+                            decoration: BoxDecoration(
+                                color: Color.fromRGBO(4, 93, 223, 1),
+                                borderRadius: BorderRadius.circular(16)),
+                            child: Center(
+                              child: Icon(
+                                Icons.arrow_back,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
-                        ),
+                          const SizedBox(
+                            width: 12,
+                          ),
+                          Container(
+                            height: 70,
+                            width: MediaQuery.of(context).size.width * 0.6,
+                            decoration: BoxDecoration(
+                                color: Color.fromRGBO(4, 93, 223, 1),
+                                borderRadius: BorderRadius.circular(16)),
+                            child: InkWell(
+                              onTap: () => ExtendedNavigator.of(context)
+                                  .push(Routes.confirmIdScreen),
+                              child: Center(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "Next",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 22),
+                                    ),
+                                    const SizedBox(
+                                      width: 4,
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.white,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 )
               ],

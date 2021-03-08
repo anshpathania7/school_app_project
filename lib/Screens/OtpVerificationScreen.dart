@@ -36,60 +36,72 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                 const SizedBox(
                   height: 36,
                 ),
-                SizedBox(
-                  height: 50,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Verify your number",
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontWeight: FontWeight.w800,
-                            letterSpacing: 1.2),
+                Hero(
+                  tag: "textTag",
+                  child: Material(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Verify your number",
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.w800,
+                                letterSpacing: 1.2),
+                          ),
+                          const SizedBox(
+                            height: 12,
+                          ),
+                          Text(
+                            "enter the otp sent to +9190055175380",
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w300,
+                                letterSpacing: 1.1),
+                          )
+                        ],
                       ),
-                      Spacer(),
-                      Text(
-                        "enter the otp sent to +9190055175380",
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w300,
-                            letterSpacing: 1.1),
-                      )
-                    ],
+                    ),
                   ),
                 ),
                 const SizedBox(
                   height: 40,
                 ),
-                PinPut(
-                  fieldsCount: 4,
-                  obscureText: "*",
-                  eachFieldHeight: 60,
-                  eachFieldWidth: 60,
-                  textStyle: TextStyle(fontSize: 56, color: Colors.white),
-                  autofocus: false,
-                  onChanged: (val) {
-                    if (val.length == 4) {
-                      ExtendedNavigator.of(context)
-                          .push(Routes.succesfulyVerified);
-                    }
-                  },
-                  eachFieldPadding: EdgeInsets.only(top: 8),
-                  submittedFieldDecoration: BoxDecoration(
-                      color: Color.fromRGBO(4, 93, 223, 1),
-                      borderRadius: BorderRadiusDirectional.circular(12)),
-                  selectedFieldDecoration: BoxDecoration(
-                      color: Colors.blue.shade100,
-                      borderRadius: BorderRadiusDirectional.circular(12)),
-                  followingFieldDecoration: BoxDecoration(
-                      color: Colors.blue.shade100,
-                      borderRadius: BorderRadiusDirectional.circular(12)),
-                  disabledDecoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadiusDirectional.circular(12)),
+                Hero(
+                  tag: "nextBtn",
+                  child: Material(
+                    child: PinPut(
+                      fieldsCount: 4,
+                      obscureText: "*",
+                      eachFieldHeight: 60,
+                      eachFieldWidth: 60,
+                      textStyle: TextStyle(fontSize: 56, color: Colors.white),
+                      autofocus: false,
+                      onChanged: (val) {
+                        if (val.length == 4) {
+                          ExtendedNavigator.of(context)
+                              .push(Routes.succesfulyVerified);
+                        }
+                      },
+                      eachFieldPadding: EdgeInsets.only(top: 8),
+                      submittedFieldDecoration: BoxDecoration(
+                          color: Color.fromRGBO(4, 93, 223, 1),
+                          borderRadius: BorderRadiusDirectional.circular(12)),
+                      selectedFieldDecoration: BoxDecoration(
+                          color: Colors.blue.shade100,
+                          borderRadius: BorderRadiusDirectional.circular(12)),
+                      followingFieldDecoration: BoxDecoration(
+                          color: Colors.blue.shade100,
+                          borderRadius: BorderRadiusDirectional.circular(12)),
+                      disabledDecoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadiusDirectional.circular(12)),
+                    ),
+                  ),
                 ),
                 const SizedBox(
                   height: 12,
@@ -100,11 +112,11 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                     children: [
                       Text(
                         "Having a trouble? request a new OTP in ",
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Colors.black, fontSize: 12),
                       ),
                       Text(
                         "00:30",
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Colors.black, fontSize: 12),
                       ),
                     ],
                   ),

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 class NoticeBoard extends StatelessWidget {
@@ -22,7 +23,7 @@ class NoticeBoard extends StatelessWidget {
                     width: 20,
                   ),
                   OutlinedButton(
-                    onPressed: () {},
+                    onPressed: () => ExtendedNavigator.of(context).pop(),
                     style: OutlinedButton.styleFrom(
                         minimumSize: Size(56, 56),
                         shape: RoundedRectangleBorder(

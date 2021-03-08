@@ -35,38 +35,48 @@ class _ConfirmIdScreenState extends State<ConfirmIdScreen> {
               const SizedBox(
                 height: 36,
               ),
-              SizedBox(
-                height: 60,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Choose the account",
-                      style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: 1.2),
+              Hero(
+                tag: "textTag",
+                child: Material(
+                  child: SizedBox(
+                    height: 60,
+                    width: MediaQuery.of(context).size.width,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Choose the account",
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w800,
+                              letterSpacing: 1.2),
+                        ),
+                        Spacer(),
+                        Text(
+                          "confirm your id",
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontWeight: FontWeight.w300,
+                              letterSpacing: 1.1),
+                        )
+                      ],
                     ),
-                    Spacer(),
-                    Text(
-                      "confirm your id",
-                      style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.w300,
-                          letterSpacing: 1.1),
-                    )
-                  ],
+                  ),
                 ),
               ),
               const SizedBox(
                 height: 40,
               ),
-              UserIdSelector(),
+              UserIdSelector(
+                heroTag: "",
+              ),
               Spacer(),
               Center(
                   child: Text(
-                      "By continuing, you agree to the #school_app_project")),
+                "By continuing, you agree to the #school_app_project",
+                style: TextStyle(fontSize: 10),
+              )),
               Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -86,60 +96,65 @@ class _ConfirmIdScreenState extends State<ConfirmIdScreen> {
               const SizedBox(
                 height: 36,
               ),
-              SizedBox(
-                height: 60,
-                child: Row(
-                  children: [
-                    Container(
-                      height: 70,
-                      width: 70,
-                      decoration: BoxDecoration(
-                          color: Color.fromRGBO(4, 93, 223, 1),
-                          borderRadius: BorderRadius.circular(16)),
-                      child: InkWell(
-                        onTap: () => ExtendedNavigator.of(context).pop(),
-                        child: Center(
-                          child: Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 12,
-                    ),
-                    Container(
-                      height: 70,
-                      width: MediaQuery.of(context).size.width * 0.68,
-                      decoration: BoxDecoration(
-                          color: Color.fromRGBO(4, 93, 223, 1),
-                          borderRadius: BorderRadius.circular(16)),
-                      child: InkWell(
-                        onTap: () => ExtendedNavigator.of(context)
-                            .push(Routes.otpVerificationScreen),
-                        child: Center(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Next",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 22),
-                              ),
-                              const SizedBox(
-                                width: 4,
-                              ),
-                              Icon(
-                                Icons.arrow_forward,
+              Hero(
+                tag: "nextBtn",
+                child: Material(
+                  child: SizedBox(
+                    height: 60,
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 70,
+                          width: 70,
+                          decoration: BoxDecoration(
+                              color: Color.fromRGBO(4, 93, 223, 1),
+                              borderRadius: BorderRadius.circular(16)),
+                          child: InkWell(
+                            onTap: () => ExtendedNavigator.of(context).pop(),
+                            child: Center(
+                              child: Icon(
+                                Icons.arrow_back,
                                 color: Colors.white,
                               ),
-                            ],
+                            ),
                           ),
                         ),
-                      ),
+                        const SizedBox(
+                          width: 12,
+                        ),
+                        Container(
+                          height: 70,
+                          width: MediaQuery.of(context).size.width * 0.6,
+                          decoration: BoxDecoration(
+                              color: Color.fromRGBO(4, 93, 223, 1),
+                              borderRadius: BorderRadius.circular(16)),
+                          child: InkWell(
+                            onTap: () => ExtendedNavigator.of(context)
+                                .push(Routes.otpVerificationScreen),
+                            child: Center(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "Next",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 22),
+                                  ),
+                                  const SizedBox(
+                                    width: 4,
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward,
+                                    color: Colors.white,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               ),
               const SizedBox(
